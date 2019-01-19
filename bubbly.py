@@ -70,6 +70,117 @@ chain3 = {
 
 bubbles3 = set('FLUPHREMYNACVGITS')
 
+# problem 4
+chain4 = {
+    'V': 'A',
+    'S': 'A',
+    'P': 'S',
+    'E': 'P',
+    'Y': 'I',
+    'N': 'Y',
+    'F': 'N',
+    'U': 'Y',
+    'T': 'U',
+    'H': 'T',
+    'G': 'B',
+    'R': 'M',
+    'K': 'R',
+    'C': 'R',
+    'L': 'C',
+}
+
+bubbles4 = set()
+for k, v in chain4.items():
+    bubbles4.add(k)
+    bubbles4.add(v)
+
+# problem 5
+chain5 = {
+    'N': 'F',
+    'Z': 'N',
+    'K': 'N',
+    'P': 'K',
+    'L': 'F',
+    'G': 'L',
+    'M': 'G',
+    'S': 'L',
+    'Y': 'S',
+    'I': 'S',
+    'C': 'I',
+    'V': 'I',
+    'H': 'V',
+    'E': 'L',
+    'B': 'E',
+    'A': 'E',
+    'R': 'A',
+    'D': 'E',
+    'T': 'D',
+    'U': 'Y',
+}
+
+bubbles5 = set()
+for k, v in chain5.items():
+    bubbles5.add(k)
+    bubbles5.add(v)
+
+# problem 6
+chain6 = {
+    'W': 'S',
+    'I': 'C',
+    'R': 'C',
+    'P': 'R',
+    'D': 'A',
+    'U': 'A',
+    'X': 'U',
+    'T': 'A',
+    'F': 'T',
+    'G': 'F',
+    'B': 'A',
+    'H': 'B',
+    'L': 'B',
+    'N': 'L',
+    'E': 'B',
+    'Y': 'E',
+    'Z': 'E',
+    'V': 'Z',
+    'M': 'Z',
+    'K': 'M',
+}
+
+bubbles6 = set()
+for k, v in chain6.items():
+    bubbles6.add(k)
+    bubbles6.add(v)
+
+# problem 7
+chain7 = {
+    'E': 'N',
+    'H': 'P',
+    'W': 'H',
+    'Q': 'F',
+    'B': 'Q',
+    'V': 'B',
+    'I': 'V',
+    'G': 'R',
+    'U': 'G',
+    'L': 'U',
+    'Z': 'L',
+    'C': 'Z',
+    'Y': 'T',
+    'A': 'Y',
+    'J': 'Y',
+    'M': 'J',
+    'S': 'T',
+    'D': 'S',
+    'K': 'D',
+    'X': 'K',
+}
+
+bubbles7 = set()
+for k, v in chain7.items():
+    bubbles7.add(k)
+    bubbles7.add(v)
+
 state = {}
 
 def bubbly(bubbles, bubble_chain, my_turn):
@@ -151,5 +262,21 @@ print()
 
 print('Problem 3:')
 print(winning_moves(bubbles3, chain3))
+print()
+
+print('Problem 4:')
+print(winning_moves(bubbles4, chain4))
+print()
+
+print('Problem 5:')
+print(winning_moves(bubbles5, chain5))
+print()
+
+print('Problem 6:')
+print(winning_moves(bubbles6, chain6))
+print()
+
+print('Problem 7:')
+print(winning_moves(bubbles7, chain7))
 print()
 
