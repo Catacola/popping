@@ -48,6 +48,28 @@ chain2 = {
 
 bubbles2 = set('GEVPRHFSUNITALC')
 
+#problem 3
+chain3 = {
+    'P': 'F',
+    'L': 'F',
+    'U': 'L',
+    'H': 'F',
+    'R': 'H',
+    'E': 'H',
+    'A': 'E',
+    'N': 'A',
+    'Y': 'A',
+    'M': 'Y',
+    'C': 'E',
+    'V': 'C',
+    'I': 'C',
+    'G': 'I',
+    'T': 'I',
+    'S': 'T',
+}
+
+bubbles3 = set('FLUPHREMYNACVGITS')
+
 state = {}
 
 def bubbly(bubbles, bubble_chain, my_turn):
@@ -122,5 +144,9 @@ print()
 
 print('Problem 2:')
 print(winning_moves(bubbles2, chain2))
+print()
+
+print('Problem 3:')
+print(winning_moves(bubbles3, chain3))
 print()
 
