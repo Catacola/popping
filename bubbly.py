@@ -125,6 +125,9 @@ def get_state_key(bubbles, my_turn):
     return (''.join(sorted(bubbles)), my_turn)
 
 def winning_moves(bubbles, bubble_chain):
+    global state
+    state = {}
+
     winning_bubbles = []
 
     for bubble in bubbles:
