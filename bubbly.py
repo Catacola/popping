@@ -28,7 +28,12 @@ chain1 = {
     'L': 'E',
 }
 
-bubbles1 = set('NARCGHSUITVEL')
+#bubbles1 = set('NARCGHSUITVEL')
+bubbles1 = set()
+for k, v in chain1.items():
+    bubbles1.add(k)
+    bubbles1.add(v)
+bubbles1.add('N')
 
 #problem 2
 chain2 = {
@@ -46,7 +51,11 @@ chain2 = {
     'L': 'A',
 }
 
-bubbles2 = set('GEVPRHFSUNITALC')
+#bubbles2 = set('GEVPRHFSUNITALC')
+bubbles2 = set()
+for k, v in chain2.items():
+    bubbles2.add(k)
+    bubbles2.add(v)
 
 #problem 3
 chain3 = {
@@ -68,7 +77,11 @@ chain3 = {
     'S': 'T',
 }
 
-bubbles3 = set('FLUPHREMYNACVGITS')
+#bubbles3 = set('FLUPHREMYNACVGITS')
+bubbles3 = set()
+for k, v in chain3.items():
+    bubbles3.add(k)
+    bubbles3.add(v)
 
 # problem 4
 chain4 = {
@@ -115,7 +128,7 @@ chain5 = {
     'R': 'A',
     'D': 'E',
     'T': 'D',
-    'U': 'Y',
+    'U': 'T',
 }
 
 bubbles5 = set()
