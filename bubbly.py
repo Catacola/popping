@@ -1,40 +1,75 @@
-#bubble_chain = {
-#    'H': ['HA', 'HAE'],
-#    'HA': ['HAE'],
-#    'HAE': [],
-#    'I': ['IT'],
-#    'IT': [],
-#    'S': [],
-#    'N': [],
-#  }
+# the key is a bubble and the value is the bubble it is inside
+# topmost bubbles are not in this map
 
+# example problem
 bubble_chain = {
     'H': 'A',
     'A': 'E',
     'I': 'T',
 }
 
+# all off the bubbles
 bubbles = set('HAEITSN')
 
 state = {}
 
 def bubbly(bubbles, bubble_chain, my_turn):
 
-    if len(bubbles) == 1 and my_turn:
+    # print('Bubbly called with bubbles: ', bubbles, ', my_turn: ', my_turn)
+
+    state_key = get_state_key(bubbles, my_turn)
+
+    if state_key in state:
+        return state[state_key]
+
+    if len(bubbles) == 1:
+        state[state_key] = my_turn
+        return my_turn
+
+    if len(bubbles) == 0:
+        state[state_key] = not my_turn
+        return not my_turn
+
+    if my_turn:
+        for bubble in bubbles:
+            popped = get_popped_bubbles(bubble, bubble_chain)
+
+            if bubbly(bubbles - popped, bubble_chain, not my_turn):
+                state[state_key] = True
+                return True
+
+        state[state_key] = False
+        return False
+
+    else:
+        for bubble in bubbles:
+            popped = get_popped_bubbles(bubble, bubble_chain)
+
+            if not bubbly(bubbles - popped, bubble_chain, not my_turn):
+                state[state_key] = False
+                return False
+
+        state[state_key] = True
         return True
 
-    bottom_bubbles = get_bottom_bubbles(bubbles, bubble_chain)
 
-    #for bubble in bottom_bubbles:
+def get_popped_bubbles(bubble, bubble_chain):
+    popped = set(bubble)
+    parent = bubble_chain.get(bubble, None)
+    while parent is not None:
+        popped.add(parent)
+        parent = bubble_chain.get(parent, None)
+    return popped
 
 
-    return bottom_bubbles
+def get_state_key(bubbles, my_turn):
+    return (''.join(sorted(bubbles)), my_turn)
 
-def get_bottom_bubbles(bubbles, bubble_chain):
-    in_deg = {bubble: 0 for bubble in bubbles}
-    for outer_bubble in bubble_chain.values():
-        in_deg[outer_bubble] += 1
+winning_bubbles = []
 
-    return [bubble for bubble, deg in in_deg.items() if deg == 0]
+for bubble in bubbles:
+    popped = get_popped_bubbles(bubble, bubble_chain)
+    if bubbly(bubbles - popped, bubble_chain, False):
+        winning_bubbles.append(bubble)
 
-print(bubbly(bubbles, bubble_chain, True))
+print(winning_bubbles)
